@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+
+<html>
+
+
+    <!--Nome da página-->
+    <head>
+        <title>Simulador de UCP</title>
+        <style type = "text/css" href="style.css"></style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="imagem/jpeg" href="https://cdn-icons-png.flaticon.com/512/167/167482.png">
+        <script type="text/javascript" src="exec.js"></script>
+
+    </head>
+
+    <!--Layout do corpo da página-->
+    <body>
+    
+
+
+    <div id="corpo">
+
+    <!--Tabela total que envolve todos elementos-->
+    <table id="tabelaTotal">
+
+
+            <!--Título na página-->
+            <center>
+            <p id="texto-titulo">Simulador de UCP</p>
+            </center>
+
+              <!--Layout da tabela 1 (Armazenamento de registros)-->  
+
+                <table id="tabelaArmazenamentoRegistros1">
+                    <p id="textoarmazenamentoRegistros">
+                        Endereço de Armazenamento
+                    </p>
+                        <tr cellspacing =.5 cellpading=.5 colspan="4">
+                        
+
+                            <td width=14% align="center">
+                                <font face="Arial" size="2" color="red">Registros</font>
+                            </td>
+                            
+                            <td width=23% align="center">
+                                <font face="Arial" size=2 color="red">Endereçamento de Armazenamento A</font>
+                            </td>
+
+                            <td width=23% align="center">
+                                <font face="Arial" size="2" color="red">Endereçamento de Armazenamento B</font>
+                            </td>
+
+                            <td width=23% align="center">
+                                <font color="red">Endereçamento de Armazenamento C</font>
+                            </td>
+
+
+                            
+                        </tr>
+
+
+                        <!--Tabela com layout de inserção dos valores dos registradores-->
+
+                        <tr>
+                            <td>
+                                <table>
+
+                                    <tr>
+                                        <td>
+                                            <font face="Arial" size=2 color="blue">R0:</font>
+                                            <input type="number" name="R0" id="Reg1" onchange="Extrai(1)" size="16" maxlength="16" tabindex="0" value="0"> 
+                                        </td>
+                                    </tr> 
+                                    
+                                    <tr>
+                                        <td>
+                                            <font face="Arial" size=2 color="blue">R1:</font>
+                                            <input type="number" name="R1" id="Reg2" onchange="Extrai(2)"size="16" maxlenght="16" tabindex="1" value="0">
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <font face="Arial"  size=2 color="blue">R2:</font>
+                                            <input type="number" name="R2" id="Reg3" onchange="Extrai(3)"size="16" maxlength="16" tabindex="2" value="0">
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <font face="Arial" size=2 color="blue">R3:</font>
+                                            <input type="number" name="R3" id="Reg4" onchange="Extrai(4)" size="16" maxlength="16" tabindex="3" value="0">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                            
+                            <!--Endereçamento de armazenamento 1-->
+                            <td>
+                                <table align="center">
+                                    <tr>
+                                        <td>
+                                            <font face="Arial" size="2" color="blue">R0:</font>
+                                            <input type="radio" id="Regg1" onclick="Endec('A', 1)" name="R_endA">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <font face="Arial" size="2" color="blue">R1:</font>
+                                            <input type="radio"  id="Regg2" onclick="Endec('A', 2)" name="R_endA">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <font face="Arial" size="2" color="blue">R2:</font>
+                                            <input type="radio" id="Regg3" onclick="Endec('A', 3)" name="R_endA">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <font face="Arial" size="2" color="blue">R3:</font>
+                                            <input type="radio" id="Regg4" onclick="Endec('A', 4)" name="R_endA">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                            <!--Endereçamento de armazenamento 2-->
+
+                            <td>
+                                <table align="center">
+                                    <tr>
+                                        <td>
+                                            <font face="Arial" size="2" color="blue">R0:</font>
+                                            <input type="radio"  onclick="Endec('B', 1)"name="R_endB">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <font face="Arial" size="2" color="blue">R1:</font>
+                                            <input type="radio" onclick="Endec('B', 2)" name="R_endB">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <font face="Arial" size="2" color="blue">R2:</font>
+                                            <input type="radio"  onclick="Endec('B', 3)"name="R_endB">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <font face="Arial" size="2" color="blue">R3:</font>
+                                            <input type="radio" onclick="Endec('B', 4)" name="R_endB">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                            <!--Endereço de armazenamento 3-->
+
+                            <td>
+                                <table align="center">
+                                    <tr>
+                                        <td>
+                                            <font face="Arial" size="2" color="blue">R0:</font>
+                                            <input type="radio"  onclick="Endec('C', 1)"name="R_endC">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <font face="Arial" size="2" color="blue">R1:</font>
+                                            <input type="radio"  onclick="Endec('C', 2)"name="R_endC">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <font face="Arial" size="2" color="blue">R2:</font>
+                                            <input type="radio"  onclick="Endec('C', 3)"name="R_endC">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <font face="Arial" size="2" color="blue">R3:</font>
+                                            <input type="radio"  onclick="Endec('C', 4)"name="R_endC">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                        </tr>
+
+                    </td>
+                </tr>
+                
+                </table>
+
+                <div id="arrowAnim1">
+                    <div class="arrowSliding">
+                      <div class="arrow"></div>
+                    </div>
+                    <div class="arrowSliding delay1">
+                      <div class="arrow"></div>
+                    </div>
+                    <div class="arrowSliding delay2">
+                      <div class="arrow"></div>
+                    </div>
+                    <div class="arrowSliding delay3">
+                      <div class="arrow"></div>
+                    </div>
+                </div>
+                
+            
+        
+            <!--Tabela escolha da base do dado-->
+
+            <div >
+        
+                <table id="tipoDado">
+                        
+
+                        <table id="tipoDado1" colspan="2">
+
+                            <tr>
+                                <td align="center">
+                                    <font color="red">Sistema de Numeração
+                                        <br>
+                                        <br>
+                                        
+                                    </font>
+                                </td>
+                            </tr>
+
+                    
+                                <tr>
+                                    <td>
+                                        <input type="radio" onclick="Converte('1')"name="escolha_tipodado">
+                                        <font face="Arial" size="2">Decimal</font>
+                                    </td>
+                                </tr>
+                    
+                                <tr>
+                                    <td>
+                                        <input type="radio" onclick="Converte('2')"name="escolha_tipodado">
+                                        <font face="Arial" size="2">Binário <br> <br></font>
+                                    </td>        
+                                </tr>
+                            
+                            
+
+                          
+
+                        </table>
+                    
+                        <table id="botoesOperacao">
+                            <tr>
+                                <div id="botoesOperacao">
+                                    <tr>
+                                       
+                                        <td align="center">
+    
+                                            <!--Botão para iniciar funcionamento do sistema-->
+                                            <input type="submit" onclick="iniciar()"name="botao_realizar" value="Iniciar">
+                                    
+                                            <!--Botão para pausar o funcionamento do sistema-->
+                                            <input type="submit" name="botao_pause" value="Pausar">
+                                            
+                                        </td>
+                                    </tr>
+                                    
+                                    
+                                </div>
+                                
+                            </tr>
+
+                        </table>
+
+            
+
+                </table>
+            </div>
+
+
+
+            <div id="arrowAnim4">
+                <div class="arrowSliding">
+                    <div class="arrow"></div>
+                  </div>
+                  <div class="arrowSliding delay1">
+                    <div class="arrow"></div>
+                  </div>
+                  <div class="arrowSliding delay2">
+                    <div class="arrow"></div>
+                  </div>
+                  <div class="arrowSliding delay3">
+                    <div class="arrow"></div>
+                  </div>
+            </div>
+
+            <!--Unidade de controle-->
+                <table id="UnidadeControle" >
+                    
+                    <tr colspan="2">
+                        <td>
+                            <font face="Arial" color="black">A:</font> 
+                            <input type="text" name="A" id="CampoA"size="16" maxlength="16" tabindex="Porta_A" value="0" readonly>
+                            
+                        </td>
+        
+            
+                        <td >
+                            <font face="Arial" color="black">B:</font>
+                            <input type="text" name="B"id="CampoB" size="16" maxlength="16" tabindex="Porta_B" value="0" readonly>
+                        </td>
+                    
+                    </tr>
+                </table>
+        
+                <div id="arrowAnim2">
+                    <div class="arrowSliding">
+                      <div class="arrow"></div>
+                    </div>
+                    <div class="arrowSliding delay1">
+                      <div class="arrow"></div>
+                    </div>
+                    <div class="arrowSliding delay2">
+                      <div class="arrow"></div>
+                    </div>
+                    <div class="arrowSliding delay3">
+                      <div class="arrow"></div>
+                    </div>
+                </div>
+            
+        <!--Tabela da ULA-->
+        <div id="alinhamentoULAeEnderecoArmazenamento3">
+        <table id="tabelaUla">
+
+
+            <tr>
+                <td align="center" colspan="2">
+                    <font face="Arial" size="3" color="red">Unidade Lógica e Aritmética (ULA)</font>
+                </td>
+                
+            </tr>
+
+            <tr celspacing=".5"  celpadding=".5" colspan="2">
+                <td width="15%">
+                    <font face="Arial" color="blue">A:</font>
+                    <input type="text" name="A" id="CampoC"size="16" maxlength="16" tabindex="Porta_A" value="0" readonly>
+                    
+                </td>
+
+    
+                <td width="15%">
+                    <font face="Arial" color="blue">B:</font>
+                    <input type="text" name="B" id="CampoD"size="16" maxlength="16" tabindex="Porta_B" value="0" readonly>
+                </td>
+            
+            </tr>
+            
+            
+    
+
+            <!--Layout da seleção do tipo de operação a ser realizada-->
+            <tr colspan="2"> 
+                <td>
+                    <table id="operações">
+
+                        <th align="center">
+                            <font face="Arial" size="2">Operação</font>
+                        </th>
+
+                        <tr>
+                            <td>
+                                <input type="radio" onclick="Math('+')" name="botao_adicao">
+                                <font face="Arial" size="2" color="blue">Adição (+)</font>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input type="radio" onclick="Math('-')"name="botao_subtracao">
+                                <font face="Arial" size="2" color="blue">Subtração (-)</font>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input type="radio" onclick="Math('*')" name="botao_multiplicacao">
+                                <font face="Arial" size="2" color="blue">Multiplicação (*)</font><font color="white">___________</font>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input type="radio" onclick="Math('/')" name="botao_divisao">
+                                <font face="Arial" size="2" color="blue">Divisão (/)</font>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    
+                </td>
+
+                <td>
+                    <table id="tabelaC">
+                            <tr>
+                                <td>
+                                    <font color="white">.</font><font face="Arial" size="2">C:</font>
+                                    <input type="text" name="saida_c" id="CampoE" size="16" maxlength="16" tabindex="saida_c" value="0" readonly>
+                                </td>
+                            </tr>
+
+
+                    </table>
+                </td>
+                
+            </tr>
+            
+
+        </table>
+
+        <div id="arrowAnim3">
+            <div class="arrowSliding">
+                <div class="arrow"></div>
+              </div>
+              <div class="arrowSliding delay1">
+                <div class="arrow"></div>
+              </div>
+              <div class="arrowSliding delay2">
+                <div class="arrow"></div>
+              </div>
+              <div class="arrowSliding delay3">
+                <div class="arrow"></div>
+              </div>
+        </div>
+
+        
+        
+        
+
+        <!--Tabela mostrando a saída na porta 3-->
+        <div>
+        <tr>
+            
+            <table id="tabelaEndereçoArmazenamento3">
+
+                <tr>
+                    <td align="center">
+                        <font name="Arial" size="3"  color="red">Endereço de Armazenamento 3</font>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="center">
+                        <input type="text" size="16"id="CampoH" maxlength="16" value="0" tabindex="saida" readonly>
+                    </td>
+                </tr>
+            </table>
+        </tr>
+        </div>
+        </div>
+        
+
+    
+
+        <table id="tabelaMemoria">
+            <div>
+
+                <tr>
+                    <td align="center">
+                        <font face="Arial" size="3" color="red">Espaços da Memória</font>
+                    </td>
+                </tr>
+
+                <tr>
+                        <td align="center" colspan="2">
+
+                            <table border="1" width="100%">
+                                <td align="center">
+                                    <font face="Arial" size="2">1</font>
+                                    <p>
+                                    <font face="Arial" size="1">|</font>
+                                    <p>
+                                    <font face="Arial" size="1">|</font>
+                                    <p>
+                                    <font face="Arial" size="2">500</font>
+                                </td>
+
+                                <td align="center">
+                                    <font>SO</font>
+                                </td>
+                            </table>
+
+                        </td>
+                </tr>
+
+                
+
+                <tr>
+                    <td>
+
+                        <table width="100%" colspan="2"> 
+
+
+                            <tr>
+                                <td>
+                                    <font face="Arial" size="2">501</font>
+                                    
+                                </td>
+
+                                <td>
+                                    <input type="text" id="Dit1" size="16" maxlength="16">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <font face="Arial" size="2">502</font>
+                                </td>
+                                
+                                <td>
+                                    <input type="text" id="Dit2" size="16" maxlength="16">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <font face="Arial" size="2">503</font>
+                                </td>
+
+                                <td>
+                                    <input type="text" id="Dit3" size="16" maxlength="16">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <font face="Arial" size="2">504</font>
+                                </td>
+
+                                <td> 
+                                    <input type="text" id="Dit4" size="16" maxlength="16">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <font face="Arial" size="2">505</font>
+                                </td>
+
+                                <td> 
+                                    <input type="text" id="Dit5"size="16" maxlength="16">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <font face="Arial" size="2">506</font>
+                                </td>
+
+                                <td> 
+                                    <input type="text" id="Dit6" size="16" maxlength="16">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <font face="Arial"  size="2">507</font>
+                                </td>
+
+                                <td> 
+                                    <input type="text" id="Dit7" size="16" maxlength="16">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <font face="Arial" size="2">508</font>
+                                </td>
+
+                                <td> 
+                                    <input type="text" id="Dit8" size="16" maxlength="16">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <font face="Arial" size="2">509</font>
+                                </td>
+
+                                <td> 
+                                    <input type="text" id="Dit9" size="16" maxlength="16">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <font face="Arial" size="2">510</font>
+                                </td>
+
+                                <td> 
+                                    <input type="text" id="Dit10" size="16" maxlength="16">
+                                </td>
+                            </tr>
+
+                            
+
+                                
+                        </table>
+
+                    </td>
+                </tr>
+
+            
+
+
+            </div>
+        </table>
+
+    </table>    
+    </div>
+    </body>
+
+
+
+
+</html>
