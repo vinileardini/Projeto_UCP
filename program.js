@@ -152,7 +152,7 @@ function iniciar(){
             document.getElementById("Dit1").value = Total.toString()
         }
         else{
-            alert(cAlias)
+           
             document.getElementById(cAlias).value = Total.toString()
         }
        
